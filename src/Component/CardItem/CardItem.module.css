@@ -1,0 +1,118 @@
+.CardItemAdaptive {
+	width: 100%;
+	border: 1px solid #000000a9;
+	border-radius: 8px;
+	padding: 20px 0;
+	display: none;
+}
+
+@media (max-width:479px) {
+	.CardItemAdaptive{display: block;}
+}
+
+.CardItem{
+	width: 100%;
+	min-height: 130px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+}
+
+.CardItemContent {
+	width: 100%;
+	border: 1px solid #000000a9;
+	border-radius: 8px;
+	min-height: 130px;
+	padding: 15px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+}
+
+/* .CardItemCheck {
+	position: absolute;
+  	z-index: -1;
+  	opacity: 0;
+} */
+
+/* .CardItemCheck+label {
+	padding: 0 10px 0 20px;
+	display: inline-flex;
+	align-items: center;
+	user-select: none;
+}
+
+.CardItemCheck+label::before {
+	content: '';
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #adb5bd;
+	margin-right: 10px;
+	border-radius: 10px;
+} */
+
+.CardItemHeader {
+	display: flex;
+	justify-content: space-between;
+}
+
+.CardItemHeaderContent {
+	display: flex;
+}
+
+.CardItemRemove {
+	display: flex;
+	cursor: pointer;
+}
+
+.CardItemDescription{
+	width: 100%;
+	padding: 10px 0;
+	word-break: break-all;
+}
+
+.CardItemBottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: auto;
+}
+
+.CardItemPriority {
+	/* border: 1px solid #000000a9; */
+	/* width: 80px; */
+	height: 20px;
+	border-radius: 20px;
+	/* background-color: #E2504BA6; */
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 13px;	
+	padding: 7% 15%;
+	display: flex;
+	align-items: center;
+}
+.PriorityNormal {
+	background-color: #E9E9E9;
+}
+
+.PriorityHigh {
+	background-color: rgba(168, 228, 160, 0.9);
+}
+
+.PriorityUrgent {
+	background-color: rgba(255, 255, 153, 0.952);
+}
+
+.PriorityInstant {
+	background-color: rgba(226, 80, 75, 0.65);
+}
+
+.CardItemTransfer {
+	display: flex;
+	cursor: pointer;
+}
+
+.pref {
+	margin-right: 3px;
+}

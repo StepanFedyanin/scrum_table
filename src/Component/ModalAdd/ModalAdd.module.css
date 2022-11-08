@@ -1,0 +1,238 @@
+.ModalContent {
+	display: none;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.7);
+	left: 0;
+	top: 0;
+}
+
+.ModalAdd {
+	background-color: #FFFFFF;
+	width: 70vw;
+	max-width:700px;
+	/* height: 40vh; */
+	height: fit-content;
+	max-height: fit-content;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border: 1px solid #000000a9;
+	border-radius: 20px;
+	padding: 20px;
+}
+
+.active {
+	display: block;
+}
+
+.ModalContentContainer {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.ModalTitle {
+	margin-top: 20px;
+}
+
+.ModalContentInputs {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.ModalRadioInput {
+	display: flex;
+	align-items: center;
+	width: 39vw;
+	justify-content: space-between;
+	margin: 15px 0;
+}
+
+.ModalRadioItem {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	/* height: 60px; */
+}
+
+input[id="normal"]:checked::after {
+	content: '';
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #E9E9E9;
+	transform: translate(-50%, -50%);
+	visibility: visible;
+	left: 50%;
+	top: 84%;
+}
+
+input[id="high"]:checked::after {
+	content: '';
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #A8E4A0;
+	transform: translate(-50%, -50%);
+	visibility: visible;
+	left: 50%;
+	top: 84%;
+}
+
+input[id="urgent"]:checked::after {
+	content: '';
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #FFFF99;
+	transform: translate(-50%, -50%);
+	visibility: visible;
+	left: 50%;
+	top: 84%;
+}
+
+input[id="instant"]:checked::after {
+	content: '';
+	position: absolute;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #E2504B;
+	transform: translate(-50%, -50%);
+	visibility: visible;
+	left: 50%;
+	top: 84%;
+}
+
+.ModalRadioLabel {
+	padding-bottom: 6px;
+}
+
+.ModalHeaderInput {
+	padding: 15px 20px;
+	/* background: #B1E7AA; */
+	background: #99958c13;
+	border-radius: 20px;
+}
+
+.ModalDescription {
+	display: flex;
+	flex-direction: column;
+	height: 23vh;
+	width: 39vw;
+}
+
+/* input[placeholder='header...']::-webkit-input-placeholder { 
+	color: #FFFFFF; 
+}
+
+input[placeholder='header...']::-moz-placeholder { 
+	color: #FFFFFF; 
+}
+
+input[placeholder='description...']::-webkit-input-placeholder { 
+	color: #FFFFFF; 
+}
+
+input[placeholder='description...']::-moz-placeholder { 
+	color: #FFFFFF; 
+} */
+
+.ModalDescriptionInput {
+	width: 100%;
+	height: 100%;
+	border-radius: 20px;
+	padding: 15px 20px 30px 20px;
+	background: #99958c13;
+	word-break: break-all;
+}
+
+.ModalAddCard {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+}
+
+@media (max-width:768px) {
+	.ModalRadioInput{
+		flex-direction: column;
+		width: 30%;
+		min-width: 75px;
+	}
+	.ModalRadioItem {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		position: relative;
+		justify-content: space-between;
+		width: 100%;
+		/* height: 60px; */
+	}
+	.cls.ModalRadioInputRadio{
+		position: relative;
+		margin:0 10px;
+		width: fit-content;
+	}
+	input[id="normal"]:checked::after {
+		content: '';
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background-color: #E9E9E9;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 7px;
+		top: 6px;
+	}
+	
+	input[id="high"]:checked::after {
+		content: '';
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background-color: #A8E4A0;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 7px;
+		top: 6px;
+	}
+	
+	input[id="urgent"]:checked::after {
+		content: '';
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background-color: #FFFF99;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 7px;
+		top: 6px;
+	}
+	
+	input[id="instant"]:checked::after {
+		content: '';
+		position: absolute;
+		width: 14px;
+		height: 14px;
+		border-radius: 50%;
+		background-color: #E2504B;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 7px;
+		top: 6px;
+	}
+}
