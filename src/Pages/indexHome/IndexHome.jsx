@@ -1,8 +1,8 @@
 import React from 'react'
 import cls from './IndexHome.module.css'
-import FooterContent from '../Component/Footer/FooterContent'
-import HeaderContent from '../Component/Header/HeaderContent'
-import MainContent from '../Component/MainContent/MainContent'
+import FooterContent from '../../Component/Footer/FooterContent'
+import HeaderContent from '../../Component/Header/HeaderContent'
+import MainContent from '../../Component/MainContent/MainContent'
 function IndexHome() {
 	return (
 		<div className={cls.ScrumContent}>

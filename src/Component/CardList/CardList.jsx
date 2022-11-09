@@ -3,12 +3,17 @@ import { useState } from 'react'
 import cls from './CardList.module.css'
 
 
-function CardList({ children, openModal, add, title, listShow, setListShow, changeShow, id }) {
+function CardList({ children, openModal, add, title, listShow, changeShow, id }) {
 	const addCardModule = () => { openModal(true) }
+	const innerWidth = () => {
+		if (window.innerWidth < 768) {
+			changeShow(id)
+		}
+	}
 	return (
 		<div className={cls.block}>
-			<div className={cls.blockHeader} onClick={() => changeShow(id)}>
-				{title}
+			<div className={cls.blockHeader} onClick={innerWidth}>
+				<p className={cls.blockHeaderTitle}>{title}</p>
 			</div>
 			<div className={listShow ? cls.listContentShow : cls.listContent}>
 				<div className={cls.listContentItems}>

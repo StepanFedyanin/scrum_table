@@ -1,3 +1,5 @@
 .Main-Content{
    flex: 1 0 auto;
+	height: 1px;
+	min-height: 100%;
 }

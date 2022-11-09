@@ -3,20 +3,32 @@ import CardList from '../CardList/CardList'
 import CardItem from '../CardItem/CardItem'
 import ModalAdd from '../ModalAdd/ModalAdd'
 import cls from './CardCategory.module.css'
+import { useEffect } from 'react'
 
 function CardCategory() {
 	const [booleanOpenModal, setBooleanOpenModal] = useState(false)
 	const openModal = (openModal) => { setBooleanOpenModal(openModal) }
-	const [taskList, setTaskList] = useState([])
-	const [inProgress, setInProgress] = useState([])
-	const [inTesting, setInTesting] = useState([])
-	const [completed, setCompleted] = useState([])
+	const [taskList, setTaskList] = useState(['', ''])
+	const [inProgress, setInProgress] = useState(['', ''])
+	const [inTesting, setInTesting] = useState(['', ''])
+	const [completed, setCompleted] = useState(['', ''])
 
-	const [taskListShow, setTaskListShow] = useState(true)
+	const [taskListShow, setTaskListShow] = useState(false)
 	const [inProgressShow, setInProgressShow] = useState(false)
 	const [inTestingShow, setInTestingShow] = useState(false)
 	const [completedShow, setCompletedShow] = useState(false)
-
+	useEffect(() => {
+		if (window.innerWidth < 768) {
+			setTaskListShow(true)
+		}
+	}, [])
+	window.addEventListener('resize', () => {
+		// window.innerWidth < 768 &&
+		if (window.innerWidth < 768 && window.innerWidth > 750) {
+			// console.log(taskListShow);
+			changeShow(1)
+		}
+	});
 	const changeShow = (value) => {
 		if (value == 1) {
 			setTaskListShow(true)
