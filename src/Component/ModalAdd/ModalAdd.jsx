@@ -16,28 +16,28 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask }) {
 		style.push(cls.active)
 	}
 	function CardListTask() {
-		// if (header.current.value != "" && description.current.value != 0) {
-		addCardListTask(
-			addTaskList(
-				header.current.value,
-				ChoisePriority(
-					normalChecked.current.checked,
-					highChecked.current.checked,
-					urgentChecked.current.checked,
-					instantChecked.current.checked
-				),
-				description.current.value
+		if (header.current.value != "" && description.current.value != 0) {
+			addCardListTask(
+				addTaskList(
+					header.current.value,
+					ChoisePriority(
+						normalChecked.current.checked,
+						highChecked.current.checked,
+						urgentChecked.current.checked,
+						instantChecked.current.checked
+					),
+					description.current.value
+				)
 			)
-		)
 
-		// header.current.value = '';
-		// normalChecked.current.checked = false;
-		// highChecked.current.checked = false;
-		// urgentChecked.current.checked = false;
-		// instantChecked.current.checked = false;
-		// description.current.value = '';
-		// setBooleanOpenModal(false)
-		// }
+			header.current.value = '';
+			normalChecked.current.checked = false;
+			highChecked.current.checked = false;
+			urgentChecked.current.checked = false;
+			instantChecked.current.checked = false;
+			description.current.value = '';
+			setBooleanOpenModal(false)
+		}
 	}
 	return (
 		<div className={style.join(' ')} onClick={() => setBooleanOpenModal(false)}>
