@@ -4,6 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	margin-bottom: 15px;
+	position: relative;
 }
 
 .CardItemContent {
@@ -25,10 +26,32 @@
 .CardItemHeaderContent {
 	display: flex;
 }
-
+.CardItemHeader{
+	max-width: 100%;
+	overflow-x: hidden;
+}
+@keyframes scroll {
+	0% {
+		transform: translate(20px, 0);
+	}
+	100% {
+		transform: translate(-125%, 0);
+	}
+}
+.CardItemHeaderText{
+	max-width: 80%;
+}
+.active{
+	white-space: nowrap;
+	animation: scroll 7s infinite linear;
+}
 .CardItemRemove {
 	display: flex;
 	cursor: pointer;
+	position: absolute;
+    right: 15px;
+	 background-color: #FFFFFF;
+	 padding: 0 5px;
 }
 
 .CardItemDescription{

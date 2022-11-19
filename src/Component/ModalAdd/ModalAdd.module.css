@@ -37,6 +37,11 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	position: relative;
+}
+.ModalClose{
+	position: absolute;
+	right: 10px;
 }
 
 .ModalTitle {
@@ -130,8 +135,6 @@ input[id="instant"]:checked::after {
 .ModalDescription {
 	display: flex;
 	flex-direction: column;
-	height: 23vh;
-	width: 39vw;
 }
 
 /* input[placeholder='header...']::-webkit-input-placeholder { 
@@ -157,6 +160,13 @@ input[placeholder='description...']::-moz-placeholder {
 	padding: 15px 20px 30px 20px;
 	background: #99958c13;
 	word-break: break-all;
+	max-width: 500px;
+	max-height: 200px;
+	height: 23vh;
+	width: 39vw;
+	resize: none;
+	outline: none
+
 }
 
 .ModalAddCard {
@@ -186,54 +196,26 @@ input[placeholder='description...']::-moz-placeholder {
 		width: fit-content;
 	}
 	input[id="normal"]:checked::after {
-		content: '';
-		position: absolute;
-		width: 14px;
-		height: 14px;
-		border-radius: 50%;
-		background-color: #E9E9E9;
-		transform: translate(-50%, -50%);
-		visibility: visible;
-		left: 7px;
-		top: 6px;
+		left: auto;
+		right: -7px;
+		top: 13px;
 	}
 	
 	input[id="high"]:checked::after {
-		content: '';
-		position: absolute;
-		width: 14px;
-		height: 14px;
-		border-radius: 50%;
-		background-color: #A8E4A0;
-		transform: translate(-50%, -50%);
-		visibility: visible;
-		left: 7px;
-		top: 6px;
+		left: auto;
+		right: -7px;
+		top: 13px;
 	}
 	
 	input[id="urgent"]:checked::after {
-		content: '';
-		position: absolute;
-		width: 14px;
-		height: 14px;
-		border-radius: 50%;
-		background-color: #FFFF99;
-		transform: translate(-50%, -50%);
-		visibility: visible;
-		left: 7px;
-		top: 6px;
+		left: auto;
+		right: -7px;
+		top: 13px;
 	}
 	
 	input[id="instant"]:checked::after {
-		content: '';
-		position: absolute;
-		width: 14px;
-		height: 14px;
-		border-radius: 50%;
-		background-color: #E2504B;
-		transform: translate(-50%, -50%);
-		visibility: visible;
-		left: 7px;
-		top: 6px;
+		left: auto;
+		right: -7px;
+		top: 13px;
 	}
 }

@@ -4,8 +4,8 @@ function addTaskList(header, priority, description) {
 		"header": header,
 		"priority": priority,
 		"description": description,
-		favourites: false,
-		id_card: data.getSeconds() + data.getMilliseconds() + "-" + header
+		"favourites": false,
+		id_card: data.getSeconds() + data.getMilliseconds() + "" + Math.floor(Math.random() * data.getSeconds()) + "-" + header
 	}
 	return Card
 }
