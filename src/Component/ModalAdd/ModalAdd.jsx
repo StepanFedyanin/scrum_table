@@ -1,9 +1,10 @@
 import React from 'react'
 import cls from './ModalAdd.module.css'
 import ChoisePriority from '../../Utility/ChoisePriority'
-import addTaskList from '../../Utility/Add'
+import WorkWithCard from '../../Utility/Add'
 import { useRef } from 'react'
-function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask }) {
+import { useEffect } from 'react'
+function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, booleanEditModal, setBooleanEditModal, editObj, editCard }) {
 	const header = useRef("*");
 	const description = useRef("*");
 	const normalChecked = useRef("*");
@@ -15,10 +16,11 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask }) {
 	if (booleanOpenModal) {
 		style.push(cls.active)
 	}
+
 	function CardListTask() {
 		if (header.current.value != "" && description.current.value != 0) {
 			addCardListTask(
-				addTaskList(
+				WorkWithCard.addTaskList(
 					header.current.value,
 					ChoisePriority(
 						normalChecked.current.checked,
@@ -39,15 +41,74 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask }) {
 			setBooleanOpenModal(false)
 		}
 	}
+	function closeModal() {
+		setBooleanOpenModal(false);
+		setBooleanEditModal(false)
+	}
+	function editCardModal() {
+		editCard(
+			editObj.cardList,
+			editObj.setCardList,
+			WorkWithCard.editCard(
+				header.current.value,
+				ChoisePriority(
+					normalChecked.current.checked,
+					highChecked.current.checked,
+					urgentChecked.current.checked,
+					instantChecked.current.checked
+				),
+				description.current.value,
+				editObj.props.id_card
+			)
+		)
+
+	}
+	if (booleanEditModal) {
+		switch (editObj.props.priority) {
+			case 'normal':
+				normalChecked.current.checked = true;
+				break;
+			case 'high':
+				highChecked.current.checked = true;
+				break;
+			case 'urgent':
+				urgentChecked.current.checked = true;
+				break;
+			case 'instant':
+				instantChecked.current.checked = true;
+				break;
+			default:
+				normalChecked.current.checked = false;
+				highChecked.current.checked = false;
+				urgentChecked.current.checked = false;
+				instantChecked.current.checked = false;
+				break;
+		}
+		header.current.value = editObj.props.header;
+		description.current.value = editObj.props.description;
+
+	} else if (Object.keys(editObj).length) {
+		normalChecked.current.checked = false;
+		highChecked.current.checked = false;
+		urgentChecked.current.checked = false;
+		instantChecked.current.checked = false;
+		header.current.value = '';
+		description.current.value = '';
+	}
 	return (
-		<div className={style.join(' ')} onClick={() => setBooleanOpenModal(false)}>
+		<div className={style.join(' ')} onClick={() => closeModal()}>
 			<div className={cls.ModalAdd} onClick={(e) => e.stopPropagation()}>
 				<div className={cls.ModalContentContainer}>
 					<div className={cls.ModalClose}>
-						<button onClick={() => setBooleanOpenModal(false)}>x</button>
+						<button onClick={() => closeModal()}>x</button>
 					</div>
 					<div className={cls.ModalTitle}>
-						<h1>new task</h1>
+						{
+							booleanEditModal ?
+								<h1>editing card</h1>
+								:
+								<h1>new task</h1>
+						}
 					</div>
 					<div className={cls.ModalContentInputs}>
 						<div className="">
@@ -79,7 +140,12 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask }) {
 						</div>
 					</div>
 					<div className={cls.ModalAddCard}>
-						<button onClick={CardListTask}>+ add task</button>
+						{
+							booleanEditModal ?
+								<button onClick={() => editCardModal()}>edit</button>
+								:
+								<button onClick={() => CardListTask()}>+ add task</button>
+						}
 					</div>
 				</div>
 			</div>

@@ -7,12 +7,14 @@ import SaveFavourit from '../../Utility/SaveFavourit';
 function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, setInProgress, setInTesting, setCompleted }) {
 	//для открытия модального окна
 	const [booleanOpenModal, setBooleanOpenModal] = useState(false)
-	const openModal = (openModal) => { setBooleanOpenModal(openModal) }
+	const [booleanEditModal, setBooleanEditModal] = useState(false)
 	//state для адаптива
 	const [taskListShow, setTaskListShow] = useState(false)
 	const [inProgressShow, setInProgressShow] = useState(false)
 	const [inTestingShow, setInTestingShow] = useState(false)
 	const [completedShow, setCompletedShow] = useState(false)
+	// state для редактирования
+	const [editObj, setEditObj] = useState({})
 	useEffect(() => {
 		if (window.innerWidth < 768) {
 			setTaskListShow(true)
@@ -56,6 +58,9 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 			setCompletedShow(false)
 		}
 	}
+	const openModal = (openModal) => {
+		setBooleanOpenModal(openModal)
+	}
 	function addCardListTask(value) {
 		setTaskList([...taskList, value])
 	}
@@ -63,7 +68,18 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 	function transferCard(props, cardList, setCardList, favourites) {
 		setCardList([...cardList, SaveFavourit(favourites, props)])
 	}
-
+	function newEditCard(list, setList, newobj) {
+		let indexEditedCard = list.findIndex(card => card.id_card == newobj.id_card)
+		let newList = list;
+		newList.splice(indexEditedCard, 1, newobj);
+		setBooleanOpenModal(false);
+		setBooleanEditModal(false)
+	}
+	function editCardModalShow(value) {
+		setEditObj(value);
+		setBooleanEditModal(true)
+		setBooleanOpenModal(true);
+	}
 	function removeCard(removeCard, cardList, setCardList) {
 		setCardList(cardList.filter(element => element.id_card !== removeCard.id_card))
 	}
@@ -86,13 +102,14 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 							header={el.header}
 							description={el.description}
 							favourites={el.favourites}
-							backBoolean={false}
+							transferParams="next"
 							cardList={taskList}
 							setCardList={setTaskList}
 							nextCardList={inProgress}
 							setNextCardList={setInProgress}
 							removeCard={removeCard}
 							transferCard={transferCard}
+							editCard={editCardModalShow}
 						/>)}
 				</CardList>
 				<CardList
@@ -112,7 +129,7 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 							description={el.description}
 							favourites={el.favourites}
 
-							backBoolean={true}
+							transferParams="all"
 							cardList={inProgress}
 							setCardList={setInProgress}
 							nextCardList={inTesting}
@@ -121,6 +138,7 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 							setBackCardList={setTaskList}
 							removeCard={removeCard}
 							transferCard={transferCard}
+							editCard={editCardModalShow}
 						/>)}
 				</CardList>
 				<CardList
@@ -139,7 +157,7 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 							description={el.description}
 							favourites={el.favourites}
 
-							backBoolean={true}
+							transferParams="all"
 							cardList={inTesting}
 							setCardList={setInTesting}
 							nextCardList={completed}
@@ -148,6 +166,7 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 							setBackCardList={setInProgress}
 							removeCard={removeCard}
 							transferCard={transferCard}
+							editCard={editCardModalShow}
 						/>)}
 				</CardList>
 				<CardList
@@ -166,7 +185,7 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 							description={el.description}
 							favourites={el.favourites}
 
-							backBoolean={true}
+							transferParams="pref"
 							cardList={completed}
 							setCardList={setCompleted}
 							nextCardList={taskList}
@@ -175,9 +194,18 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 							setBackCardList={setInTesting}
 							removeCard={removeCard}
 							transferCard={transferCard}
+							editCard={editCardModalShow}
 						/>)}
 				</CardList>
-				<ModalAdd booleanOpenModal={booleanOpenModal} addCardListTask={addCardListTask} setBooleanOpenModal={setBooleanOpenModal} />
+				<ModalAdd
+					booleanOpenModal={booleanOpenModal}
+					addCardListTask={addCardListTask}
+					setBooleanOpenModal={setBooleanOpenModal}
+					booleanEditModal={booleanEditModal}
+					setBooleanEditModal={setBooleanEditModal}
+					editObj={editObj}
+					editCard={newEditCard}
+				/>
 			</div>
 		</div>
 	)

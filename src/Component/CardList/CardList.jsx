@@ -13,13 +13,8 @@ function CardList({ children, openModal, add, title, listShow, changeShow, id })
 	return (
 		<div className={cls.block}>
 			<div className={cls.blockHeader} onClick={innerWidth}>
-				<p className={cls.blockHeaderTitle}>{title}</p>
-			</div>
-			<div className={listShow ? cls.listContentShow : cls.listContent}>
-				<div className={cls.listContentItems}>
-					{
-						children
-					}
+				<div className="">
+					<p className={cls.blockHeaderTitle}>{title}</p>
 				</div>
 				{
 					add ?
@@ -28,6 +23,13 @@ function CardList({ children, openModal, add, title, listShow, changeShow, id })
 						</div>
 						: ''
 				}
+			</div>
+			<div className={listShow ? cls.listContentShow : cls.listContent}>
+				<div className={cls.listContentItems}>
+					{
+						children
+					}
+				</div>
 			</div>
 
 		</div>

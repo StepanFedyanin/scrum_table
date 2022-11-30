@@ -1,10 +1,52 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { useRef } from 'react'
 import { useState } from 'react'
 import CheckboxChange from '../UI/Checkbox.jsx'
 import cls from './CardItem.module.css'
-function CardItem({ backBoolean, cardList, setCardList, nextCardList, setNextCardList, backCardList, setBackCardList, transferCard, removeCard, ...props }) {
+import './PriorityCard.css'
+
+const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable) => {
+	console.log(paramsTools);
+	switch (paramsTools) {
+		case 'all':
+			return (
+				<div className={cls.CardItemTransfer}>
+					<div className={cls.pref}>
+						<span onClick={transferBackTheTable}>&lt;</span>
+					</div>
+					<div className={cls.next}>
+						<span onClick={transferAcrossTheTable}>&gt;</span>
+					</div>
+				</div>
+			)
+
+			break;
+		case 'pref':
+			return (
+				<div className={cls.CardItemTransfer}>
+					<div className={cls.pref}>
+						<span onClick={transferBackTheTable}>&lt;</span>
+					</div>
+				</div>
+			)
+			break;
+		case 'next':
+			return (
+				<div className={cls.CardItemTransfer}>
+					<div className={cls.next}>
+						<span onClick={transferAcrossTheTable}>&gt;</span>
+					</div>
+				</div>
+			)
+			break;
+
+		default:
+
+			break;
+	}
+}
+
+function CardItem({ transferParams, cardList, setCardList, nextCardList, setNextCardList, backCardList, setBackCardList, transferCard, removeCard, editCard, ...props }) {
 	const [favourites, setFavourites] = useState(props.favourites)
 	const style = [cls.CardItemPriority]
 	const styleHeader = [cls.CardItemHeaderText];
@@ -22,7 +64,6 @@ function CardItem({ backBoolean, cardList, setCardList, nextCardList, setNextCar
 			style.push(cls.PriorityInstant)
 		}
 
-
 	}
 	useEffect(() => {
 		EffectStyle();
@@ -39,6 +80,9 @@ function CardItem({ backBoolean, cardList, setCardList, nextCardList, setNextCar
 		removeCard(props, cardList, setCardList)
 		transferCard(props, backCardList, setBackCardList, favourites)
 	}
+	function editCardAssembly() {
+		editCard({ props, cardList, setCardList });
+	}
 	function deleteCard() {
 		removeCard(props, cardList, setCardList)
 	}
@@ -54,33 +98,23 @@ function CardItem({ backBoolean, cardList, setCardList, nextCardList, setNextCar
 							<p className={styleHeader.join(' ')}>{props.header}</p>
 						</div>
 					</div>
-					<div className={cls.CardItemRemove}>
-						<span onClick={deleteCard}>&#215;</span>
+					<div className={cls.CardItemTools}>
+						<div className={cls.CardItemEdit}>
+							<span onClick={() => editCardAssembly()}>...</span>
+						</div>
+						<div className="">
+							<span onClick={() => deleteCard()}>&#215;</span>
+						</div>
 					</div>
 				</div>
 				<div className={cls.CardItemDescription}>
 					<p>{props.description}</p>
 				</div>
 				<div className={cls.CardItemBottom}>
-					<div className={style.join(' ')}>
+					<div className={cls.CardItemPriority + " " + props.priority}>
 						{props.priority}
 					</div>
-					{
-						backBoolean ?
-							<div className={cls.CardItemTransfer}>
-								<div className={cls.pref}>
-									<span onClick={transferBackTheTable}>&lt;</span>
-								</div>
-								<div className={cls.next}>
-									<span onClick={transferAcrossTheTable}>&gt;</span>
-								</div>
-							</div> :
-							<div className={cls.CardItemTransfer}>
-								<div className={cls.next}>
-									<span onClick={transferAcrossTheTable}>&gt;</span>
-								</div>
-							</div>
-					}
+					{transferTools(transferParams, transferBackTheTable, transferAcrossTheTable)}
 
 				</div>
 			</div>

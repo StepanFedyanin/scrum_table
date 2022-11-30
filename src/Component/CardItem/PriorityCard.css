@@ -1,0 +1,15 @@
+.normal {
+	background-color: #E9E9E9;
+}
+
+.high {
+	background-color: rgba(168, 228, 160, 0.9);
+}
+
+.urgent {
+	background-color: rgba(255, 255, 153, 0.952);
+}
+
+.instant {
+	background-color: rgba(226, 80, 75, 0.65);
+}

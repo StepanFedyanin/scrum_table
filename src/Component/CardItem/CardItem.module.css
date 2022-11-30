@@ -45,13 +45,17 @@
 	white-space: nowrap;
 	animation: scroll 7s infinite linear;
 }
-.CardItemRemove {
+.CardItemTools {
 	display: flex;
+	align-items: center;
 	cursor: pointer;
 	position: absolute;
     right: 15px;
 	 background-color: #FFFFFF;
 	 padding: 0 5px;
+}
+.CardItemEdit{
+	transform: rotate(90deg);
 }
 
 .CardItemDescription{
@@ -80,21 +84,6 @@
 	max-height: 20px;
 	display: flex;
 	align-items: center;
-}
-.PriorityNormal {
-	background-color: #E9E9E9;
-}
-
-.PriorityHigh {
-	background-color: rgba(168, 228, 160, 0.9);
-}
-
-.PriorityUrgent {
-	background-color: rgba(255, 255, 153, 0.952);
-}
-
-.PriorityInstant {
-	background-color: rgba(226, 80, 75, 0.65);
 }
 
 .CardItemTransfer {
