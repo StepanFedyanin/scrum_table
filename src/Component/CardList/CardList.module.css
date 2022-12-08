@@ -5,13 +5,20 @@
 	width: 25%;
 	position: relative;
 }
-
+.blockAdaptive{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 25%;
+	position: relative;
+}
 .blockHeader {
-	margin: 30px 0 10px 0;
+	margin: 30px 0 10px 0px;
 	width: 100%;
 	position: relative;
 	display: flex;
 	gap: 20%;
+	padding: 0 20px;
 }
 
 .blockHeaderAdd {
@@ -21,7 +28,9 @@
 .blockHeaderAdd:hover {
 	color: red;
 }
-
+.blockContentAdd{
+	display: none;
+}
 .listContent {
 	width: 100%;
 	display: flex;
@@ -30,24 +39,37 @@
 	justify-content: space-between;
 	align-items: center;
 	overflow-y: scroll;
-	padding: 0 5px 0 0;
+	padding: 0 10px;
+}
+.listContentShow{
+	width: 100%;
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	overflow-y: scroll;
+	padding: 0 10px;
 }
 
 .listContent::-webkit-scrollbar {
 	width: 3px;
 	margin-left: 20px;
 }
-
-.listContent::-webkit-scrollbar-track {
-	background: #c2bfbfa9;
-}
-
 .listContent::-webkit-scrollbar-thumb {
 	background-color:#c2bfbfa9;
 	border-radius: 20px;
 	border: 3px solid #0000002b;
 }
-
+.listContentShow::-webkit-scrollbar {
+	width: 3px;
+	margin-left: 20px;
+}
+.listContentShow::-webkit-scrollbar-thumb {
+	background-color:#c2bfbfa9;
+	border-radius: 20px;
+	border: 3px solid #0000002b;
+}
 
 .listContentItems {
 	width: 100%;
@@ -60,6 +82,15 @@
 		flex-direction: row;
 		position: relative;
 		margin: 10px 0;
+		width: 50px;
+	}
+	.blockAdaptive{
+		width: fit-content;
+		flex-direction: row;
+		position: relative;
+		margin: 10px 0;
+		display: flex;
+		align-items: center;
 	}
 
 	.blockHeader {
@@ -67,7 +98,7 @@
 		align-items: center;
 		justify-content: center;
 		width: fit-content;
-		border: 1px solid blue;
+		border: 1px solid #000000a9;
 		background-color: #ffffff;
 		border-radius: 20px;
 		margin: 10px 0;
@@ -75,9 +106,28 @@
 		height: 100%;
 		width: 50px;
 	}
-
-	.blockHeaderTitle {
+	.blockHeaderAddHide{
+		display: none;
+	}
+	.blockContentAdd{
+		display: block;
+		background-color: #ffffff;
+		/* margin-bottom: 5px; */
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		z-index: 10;
+	}
+	.blockHeaderAdd{
+		display: flex;
+		justify-content: center;
+	}
+	.blockHeaderRotate{
 		transform: rotate(270deg);
+	}
+	.blockHeaderTitle {
 		padding: 10px 0;
 		white-space: nowrap;
 	}
@@ -116,25 +166,10 @@
 		width: 3px;
 		margin-left: 20px;
 	}
-	
-	.listContentItems::-webkit-scrollbar-track {
-		background: #c2bfbfa9;
-	}
-	
 	.listContentItems::-webkit-scrollbar-thumb {
 		background-color:#c2bfbfa9;
 		border-radius: 20px;
 		border: 3px solid #0000002b;
-	}
-
-	.blockHeaderAdd {
-		position: fixed;
-		bottom: 0;
-		background-color: #ffffff;
-		left: 0;
-		right: 0;
-		display: flex;
-		justify-content: center;
 	}
 }
 
@@ -144,16 +179,21 @@
 		flex-direction: column;
 		position: relative;
 	}
-
+	.blockAdaptive{
+		width: 100%;
+		flex-direction: column;
+		position: relative;
+	}
 	.blockHeader {
 		width: 100%;
 		height: -moz-fit-content;
 		height: fit-content;
 		z-index: 10;
 	}
-
-	.blockHeaderTitle {
+	.blockHeaderRotate{
 		transform: rotate(0deg);
+	}
+	.blockHeaderTitle {
 		padding: 10px 0;
 		white-space: nowrap;
 	}
@@ -181,5 +221,14 @@
 
 	.blockHeaderAdd {
 		padding: 0;
+	}
+}
+@media (max-height:650px) and (max-width:576px){
+	.listContentShow {
+		min-height: 10vh;
+		height: fit-content;
+		max-height: 50vh;
+		width: calc(100%);
+		margin: 0;
 	}
 }

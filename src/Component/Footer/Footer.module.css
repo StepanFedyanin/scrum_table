@@ -14,3 +14,18 @@
 .blockText {
     text-align: center;
 }
+.blockTextHide{
+	display: none;
+}
+@media (max-width:576px) {
+	.block {
+		padding: 10px 20px;
+  }
+	.blockText {
+		display: none;
+  }
+  .blockTextHide{
+	display: block;
+	text-align: center;
+  }
+}

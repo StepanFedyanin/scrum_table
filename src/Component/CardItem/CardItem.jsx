@@ -6,7 +6,6 @@ import cls from './CardItem.module.css'
 import './PriorityCard.css'
 
 const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable) => {
-	console.log(paramsTools);
 	switch (paramsTools) {
 		case 'all':
 			return (
@@ -50,6 +49,7 @@ function CardItem({ transferParams, cardList, setCardList, nextCardList, setNext
 	const [favourites, setFavourites] = useState(props.favourites)
 	const style = [cls.CardItemPriority]
 	const styleHeader = [cls.CardItemHeaderText];
+	//назвачение приоритетности карточки
 	const EffectStyle = () => {
 		if (props.priority == 'normal') {
 			style.push(cls.PriorityNormal)
@@ -68,21 +68,25 @@ function CardItem({ transferParams, cardList, setCardList, nextCardList, setNext
 	useEffect(() => {
 		EffectStyle();
 	}, [props])
-	// console.log(props.header.length);
+	//добавление бегущей строчки
 	if (props.header.length > 20) {
 		styleHeader.push(cls.active)
 	}
+	//перенос карточки вперед
 	function transferAcrossTheTable() {
 		removeCard(props, cardList, setCardList)
 		transferCard(props, nextCardList, setNextCardList, favourites)
 	}
+	//перенос карточки назад
 	function transferBackTheTable() {
 		removeCard(props, cardList, setCardList)
 		transferCard(props, backCardList, setBackCardList, favourites)
 	}
+	//редактирование карточки
 	function editCardAssembly() {
 		editCard({ props, cardList, setCardList });
 	}
+	// удаление карточки
 	function deleteCard() {
 		removeCard(props, cardList, setCardList)
 	}

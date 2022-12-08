@@ -9,26 +9,13 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 	const [booleanOpenModal, setBooleanOpenModal] = useState(false)
 	const [booleanEditModal, setBooleanEditModal] = useState(false)
 	//state для адаптива
-	const [taskListShow, setTaskListShow] = useState(false)
+	const [taskListShow, setTaskListShow] = useState(true)
 	const [inProgressShow, setInProgressShow] = useState(false)
 	const [inTestingShow, setInTestingShow] = useState(false)
 	const [completedShow, setCompletedShow] = useState(false)
 	// state для редактирования
 	const [editObj, setEditObj] = useState({})
-	useEffect(() => {
-		if (window.innerWidth < 768) {
-			setTaskListShow(true)
-		}
-	}, [])
-	window.addEventListener('resize', () => {
-		// window.innerWidth < 768 &&
-		if (window.innerWidth < 768 && window.innerWidth > 750) {
-			// console.log(taskListShow);
-			changeShow(1)
-		} else if (window.innerWidth > 768) {
-			changeShow(5)
-		}
-	});
+	//Изменение плащек адаптива
 	const changeShow = (value) => {
 		if (value == 1) {
 			setTaskListShow(true)
@@ -58,16 +45,19 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 			setCompletedShow(false)
 		}
 	}
+	//открытие модального окна
 	const openModal = (openModal) => {
 		setBooleanOpenModal(openModal)
 	}
+	//добавление из модального окна
 	function addCardListTask(value) {
 		setTaskList([...taskList, value])
 	}
-
+	//транспортировака карточек
 	function transferCard(props, cardList, setCardList, favourites) {
 		setCardList([...cardList, SaveFavourit(favourites, props)])
 	}
+	//редактирование карточки
 	function newEditCard(list, setList, newobj) {
 		let indexEditedCard = list.findIndex(card => card.id_card == newobj.id_card)
 		let newList = list;
@@ -75,11 +65,13 @@ function MainContent({ taskList, inProgress, inTesting, completed, setTaskList, 
 		setBooleanOpenModal(false);
 		setBooleanEditModal(false)
 	}
+	//вызов модального окна для редактирования карточки
 	function editCardModalShow(value) {
 		setEditObj(value);
 		setBooleanEditModal(true)
 		setBooleanOpenModal(true);
 	}
+	//удаление карточки
 	function removeCard(removeCard, cardList, setCardList) {
 		setCardList(cardList.filter(element => element.id_card !== removeCard.id_card))
 	}

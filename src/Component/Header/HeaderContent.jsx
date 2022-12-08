@@ -2,9 +2,7 @@ import React from 'react'
 import { useRef } from 'react'
 import cls from './Header.module.css'
 
-function HeaderContent({ setSerchValue }) {	// const serchChange = () => {
-	// 	console.log(unputSerch.current.value);
-	// }
+function HeaderContent({ setSerchValue }) {
 	return (
 		<div className={cls.block}>
 			<div className={cls.blockSearch}>

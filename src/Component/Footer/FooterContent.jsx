@@ -6,6 +6,9 @@ function Footer() {
 			<p className={cls.blockText}>
 				by&nbsp;Fedyanin Stepan Olegovych P-39&nbsp;&amp; Kostina Polina Olegovna P-38
 			</p>
+			<p className={cls.blockTextHide}>
+				by&nbsp;Fedyanin Stepan Olegovych P-39 <br />  &nbsp;&amp; Kostina Polina Olegovna P-38
+			</p>
 		</div>
 	)
 }

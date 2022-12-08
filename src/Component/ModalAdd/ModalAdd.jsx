@@ -11,40 +11,61 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, bool
 	const highChecked = useRef("*");
 	const urgentChecked = useRef("*");
 	const instantChecked = useRef("*");
-
-	const style = [cls.ModalContent]
+	const style = [cls.ModalContent];
+	//проверка открытия карточки и фиксация ее в одном положении
 	if (booleanOpenModal) {
 		style.push(cls.active)
+		document.body.style.position = 'fixed';
+		document.body.style.top = `-${window.scrollY}px`;
 	}
-
+	//добавление новой карточки
 	function CardListTask() {
-		if (header.current.value != "" && description.current.value != 0) {
-			addCardListTask(
-				WorkWithCard.addTaskList(
-					header.current.value,
-					ChoisePriority(
-						normalChecked.current.checked,
-						highChecked.current.checked,
-						urgentChecked.current.checked,
-						instantChecked.current.checked
-					),
-					description.current.value
-				)
+		// if (header.current.value != "" && description.current.value != 0) {
+		addCardListTask(
+			WorkWithCard.addTaskList(
+				header.current.value,
+				ChoisePriority(
+					normalChecked.current.checked,
+					highChecked.current.checked,
+					urgentChecked.current.checked,
+					instantChecked.current.checked
+				),
+				description.current.value
 			)
+		)
 
-			header.current.value = '';
-			normalChecked.current.checked = false;
-			highChecked.current.checked = false;
-			urgentChecked.current.checked = false;
-			instantChecked.current.checked = false;
-			description.current.value = '';
-			setBooleanOpenModal(false)
-		}
+		header.current.value = '';
+		normalChecked.current.checked = false;
+		highChecked.current.checked = false;
+		urgentChecked.current.checked = false;
+		instantChecked.current.checked = false;
+		description.current.value = '';
+		setBooleanOpenModal(false)
+		// }
 	}
+	//закрытие карточки
 	function closeModal() {
 		setBooleanOpenModal(false);
-		setBooleanEditModal(false)
+		setBooleanEditModal(false);
+		const scrollY = document.body.style.top;
+		document.body.style.position = '';
+		document.body.style.top = '';
+		window.scrollTo(0, parseInt(scrollY || '0') * -1);
 	}
+	if (booleanOpenModal) {
+		document.addEventListener('keydown', (e) => {
+			if (e.keyCode == 27) {
+				setBooleanOpenModal(false);
+				setBooleanEditModal(false);
+				const scrollY = document.body.style.top;
+				document.body.style.position = '';
+				document.body.style.top = '';
+				window.scrollTo(0, parseInt(scrollY || '0') * -1);
+
+			}
+		})
+	}
+	//редактироваие карточки
 	function editCardModal() {
 		editCard(
 			editObj.cardList,
@@ -63,6 +84,7 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, bool
 		)
 
 	}
+	//открытие редактированной карточки
 	if (booleanEditModal) {
 		switch (editObj.props.priority) {
 			case 'normal':
@@ -111,7 +133,7 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, bool
 						}
 					</div>
 					<div className={cls.ModalContentInputs}>
-						<div className="">
+						<div className={cls.ModalHeader}>
 							<input className={cls.ModalHeaderInput} ref={header} type="text" placeholder='header...' />
 						</div>
 						<div className={cls.ModalRadioInput}>

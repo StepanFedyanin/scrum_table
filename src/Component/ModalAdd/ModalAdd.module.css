@@ -42,6 +42,7 @@
 .ModalClose{
 	position: absolute;
 	right: 10px;
+	top: 0;
 }
 
 .ModalTitle {
@@ -57,7 +58,7 @@
 .ModalRadioInput {
 	display: flex;
 	align-items: center;
-	width: 39vw;
+	width: 100%;
 	justify-content: space-between;
 	margin: 15px 0;
 }
@@ -72,8 +73,8 @@
 input[id="normal"]:checked::after {
 	content: '';
 	position: absolute;
-	width: 14px;
-	height: 14px;
+	width: 15px;
+	height: 15px;
 	border-radius: 50%;
 	background-color: #E9E9E9;
 	transform: translate(-50%, -50%);
@@ -85,8 +86,8 @@ input[id="normal"]:checked::after {
 input[id="high"]:checked::after {
 	content: '';
 	position: absolute;
-	width: 14px;
-	height: 14px;
+	width: 15px;
+	height: 15px;
 	border-radius: 50%;
 	background-color: #A8E4A0;
 	transform: translate(-50%, -50%);
@@ -98,8 +99,8 @@ input[id="high"]:checked::after {
 input[id="urgent"]:checked::after {
 	content: '';
 	position: absolute;
-	width: 14px;
-	height: 14px;
+	width: 15px;
+	height: 15px;
 	border-radius: 50%;
 	background-color: #FFFF99;
 	transform: translate(-50%, -50%);
@@ -111,8 +112,8 @@ input[id="urgent"]:checked::after {
 input[id="instant"]:checked::after {
 	content: '';
 	position: absolute;
-	width: 14px;
-	height: 14px;
+	width: 15px;
+	height: 15px;
 	border-radius: 50%;
 	background-color: #E2504B;
 	transform: translate(-50%, -50%);
@@ -137,22 +138,6 @@ input[id="instant"]:checked::after {
 	flex-direction: column;
 }
 
-/* input[placeholder='header...']::-webkit-input-placeholder { 
-	color: #FFFFFF; 
-}
-
-input[placeholder='header...']::-moz-placeholder { 
-	color: #FFFFFF; 
-}
-
-input[placeholder='description...']::-webkit-input-placeholder { 
-	color: #FFFFFF; 
-}
-
-input[placeholder='description...']::-moz-placeholder { 
-	color: #FFFFFF; 
-} */
-
 .ModalDescriptionInput {
 	width: 100%;
 	height: 100%;
@@ -176,46 +161,147 @@ input[placeholder='description...']::-moz-placeholder {
 }
 
 @media (max-width:768px) {
+	.ModalAdd {
+		background-color: #FFFFFF;
+		width: calc(100% - 20px);
+		max-width:none;
+		/* height: 40vh; */
+		height: calc(100% - 20px);
+		max-height: fit-content;
+		margin: auto;
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		border: 1px solid #000000a9;
+		border-radius: 20px;
+		padding: 20px;
+	}
+	.ModalContentContainer {
+		justify-content: space-evenly;
+	}
 	.ModalRadioInput{
+		margin: 10% 0;
+	}
+	.ModalContentInputs {
+		width: 100%;
+		display: flex;
 		flex-direction: column;
-		width: 30%;
-		min-width: 75px;
+		align-items: center;
+	}
+	.ModalHeader{
+		width: 100%;
+	}
+	.ModalHeaderInput{
+		width: 100%;
+	}
+	.ModalDescriptionInput {
+		width: 100%;
+		height: 100%;
+		border-radius: 20px;
+		padding: 15px 20px 30px 20px;
+		background: #99958c13;
+		word-break: break-all;
+		height: 23vh;
+		width: 39vw;
+		max-width: none;
+		max-height: none;
+		resize: none;
+		outline: none
+
+	}
+}
+@media (max-width:576px) {
+	.ModalRadioInput{
+		margin: 5% 0;
+		display: flex;
+		flex-direction: column;
+	}
+	.ModalDescription {
+		width: 100%;
+	}
+	.ModalDescriptionInput {
+		width: 100%;
+		height: 100%;
+		border-radius: 20px;
+		padding: 15px 20px 30px 20px;
+		background: #99958c13;
+		word-break: break-all;
+		height: 23vh;
+		width: 100%;
+		max-width: none;
+		max-height: none;
+		resize: none;
+		outline: none
+
 	}
 	.ModalRadioItem {
-		display: flex;
 		flex-direction: row;
 		align-items: center;
-		position: relative;
+		width: 20%;
+		min-width: 100px;
 		justify-content: space-between;
-		width: 100%;
-		/* height: 60px; */
-	}
-	.cls.ModalRadioInputRadio{
-		position: relative;
-		margin:0 10px;
-		width: fit-content;
 	}
 	input[id="normal"]:checked::after {
-		left: auto;
-		right: -7px;
-		top: 13px;
+		content: '';
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background-color: #E9E9E9;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 94%;
+		top: 50%;
+  
 	}
 	
 	input[id="high"]:checked::after {
-		left: auto;
-		right: -7px;
-		top: 13px;
+		content: '';
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background-color: #A8E4A0;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 94%;
+		top: 50%;
+  
 	}
 	
 	input[id="urgent"]:checked::after {
-		left: auto;
-		right: -7px;
-		top: 13px;
+		content: '';
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background-color: #FFFF99;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 94%;
+		top: 50%;
+  
 	}
 	
 	input[id="instant"]:checked::after {
-		left: auto;
-		right: -7px;
-		top: 13px;
+		content: '';
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		border-radius: 50%;
+		background-color: #E2504B;
+		transform: translate(-50%, -50%);
+		visibility: visible;
+		left: 94%;
+		top: 54%;
+	}
+}
+@media (max-height:576px) and (max-width:768px){
+	.ModalRadioInput{
+		margin: 1% 0;
+		display: flex;
+		flex-direction: column;
 	}
 }
