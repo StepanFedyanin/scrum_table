@@ -17,6 +17,9 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, bool
 		style.push(cls.active)
 		document.body.style.position = 'fixed';
 		document.body.style.top = `-${window.scrollY}px`;
+		document.body.style.left = `-0px`;
+		document.body.style.right = `-0px`;
+
 	}
 	//добавление новой карточки
 	function CardListTask() {
@@ -50,6 +53,8 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, bool
 		const scrollY = document.body.style.top;
 		document.body.style.position = '';
 		document.body.style.top = '';
+		document.body.style.left = '';
+		document.body.style.right = '';
 		window.scrollTo(0, parseInt(scrollY || '0') * -1);
 	}
 	if (booleanOpenModal) {
