@@ -11,10 +11,10 @@ const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable
 			return (
 				<div className={cls.CardItemTransfer}>
 					<div className={cls.pref}>
-						<span className={cls.CardItem__btn}  onClick={transferBackTheTable}>&lt;</span>
+						<span className={cls.CardItem__btn} onClick={transferBackTheTable}>&lt;</span>
 					</div>
 					<div className={cls.next}>
-						<span className={cls.CardItem__btn}  onClick={transferAcrossTheTable}>&gt;</span>
+						<span className={cls.CardItem__btn} onClick={transferAcrossTheTable}>&gt;</span>
 					</div>
 				</div>
 			)
@@ -24,7 +24,7 @@ const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable
 			return (
 				<div className={cls.CardItemTransfer}>
 					<div className={cls.pref}>
-						<span className={cls.CardItem__btn}  onClick={transferBackTheTable}>&lt;</span>
+						<span className={cls.CardItem__btn} onClick={transferBackTheTable}>&lt;</span>
 					</div>
 				</div>
 			)
@@ -33,7 +33,7 @@ const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable
 			return (
 				<div className={cls.CardItemTransfer}>
 					<div className={cls.next}>
-						<span className={cls.CardItem__btn}  onClick={transferAcrossTheTable}>&gt;</span>
+						<span className={cls.CardItem__btn} onClick={transferAcrossTheTable}>&gt;</span>
 					</div>
 				</div>
 			)
@@ -69,7 +69,7 @@ function CardItem({ transferParams, cardList, setCardList, nextCardList, setNext
 		EffectStyle();
 	}, [props])
 	//добавление бегущей строчки
-	if (props.header.length > 20) {
+	if (props.header.length > 17) {
 		styleHeader.push(cls.active)
 	}
 	//перенос карточки вперед

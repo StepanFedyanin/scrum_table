@@ -136,6 +136,7 @@ input[id="instant"]:checked::after {
 	/* background: #B1E7AA; */
 	background: #99958c13;
 	border-radius: 20px;
+	font-size: 14px;
 }
 
 .ModalDescription {
@@ -144,6 +145,7 @@ input[id="instant"]:checked::after {
 }
 
 .ModalDescriptionInput {
+		font-size: 14px;
 	width: 100%;
 	height: 100%;
 	border-radius: 20px;

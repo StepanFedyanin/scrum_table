@@ -39,6 +39,7 @@
 }
 .CardItemHeaderText{
 	max-width: 80%;
+	font-size: 14px;
 }
 .active{
 	white-space: nowrap;
@@ -64,6 +65,7 @@
 	width: 100%;
 	padding: 10px 0;
 	word-break: break-all;
+		font-size: 14px;
 }
 
 .CardItemBottom {
