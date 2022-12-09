@@ -274,7 +274,7 @@ input[id="instant"]:checked::after {
 		flex-direction: row;
 		align-items: center;
 		width: 45%;
-		min-width: 100px;
+		/* min-width: 100px; */
 		justify-content: space-between;
 	}
 	input[id="normal"]:checked::after {
@@ -351,14 +351,21 @@ input[id="instant"]:checked::after {
 @media (max-height:330px){
 	.ModalAdd{
 		max-height: calc(100vh - 50px);
+		position:static
 	}
 	.ModalAddCard{
 		padding-bottom: 20px;
 	}
+	.ModalHeaderInput{
+		padding: 5px 10px;
+	}
+	.ModalDescriptionInput{
+		padding: 5px 10px;
+	}
 }
 @media (max-width:340px	){
-	.ModalRadioItems{
-
+	.ModalAdd{
+		position:static;
 	}
 	.ModalRadioItem{
 		flex-direction: column;
