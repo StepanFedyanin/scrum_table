@@ -57,7 +57,7 @@
 	transform: rotate(90deg);
 }
 .CardItem__btn:hover{
-	color: #a0a0a0;
+	color: #666;
 }
 
 .CardItemDescription{

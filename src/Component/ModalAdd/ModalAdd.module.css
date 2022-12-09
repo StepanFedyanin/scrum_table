@@ -72,7 +72,7 @@
 	/* height: 60px; */
 }
 .ModalRadioItem :hover{
-	color: #a0a0a0;
+	color: #666;
 }
 
 input[id="normal"]:checked::after {
@@ -165,7 +165,7 @@ input[id="instant"]:checked::after {
 	justify-content: flex-end;
 }
 .ModalAddCard__btn:hover{
-	color: #a0a0a0;
+	color: #666;
 }
 @media (max-width:768px) {
 	.ModalAdd {
