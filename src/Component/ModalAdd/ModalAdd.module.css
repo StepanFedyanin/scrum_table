@@ -10,21 +10,17 @@
 }
 
 .ModalAdd {
-	background-color: #FFFFFF;
 	width: 70vw;
-	max-width:700px;
-	/* height: 40vh; */
+	max-width: 700px;
 	height: fit-content;
-	max-height: fit-content;
+	overflow: auto;
 	margin: auto;
 	position: absolute;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	right: 0;
+	top: 0; left: 0; bottom: 0; right: 0;
+	background-color: #FFFFFF;
 	border: 1px solid #000000a9;
 	border-radius: 20px;
-	padding: 20px;
+	padding: 20px; 
 }
 
 .active {
@@ -46,7 +42,7 @@
 }
 
 .ModalTitle {
-	margin-top: 20px;
+	margin: 3% 0;
 }
 
 .ModalContentInputs {
@@ -62,12 +58,21 @@
 	justify-content: space-between;
 	margin: 15px 0;
 }
+.ModalRadioItems{
+	padding-left: 10%;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
 
 .ModalRadioItem {
 	display: flex;
 	flex-direction: column;
 	position: relative;
 	/* height: 60px; */
+}
+.ModalRadioItem :hover{
+	color: #a0a0a0;
 }
 
 input[id="normal"]:checked::after {
@@ -159,13 +164,14 @@ input[id="instant"]:checked::after {
 	display: flex;
 	justify-content: flex-end;
 }
-
+.ModalAddCard__btn:hover{
+	color: #a0a0a0;
+}
 @media (max-width:768px) {
 	.ModalAdd {
-		background-color: #FFFFFF;
+		/* background-color: #FFFFFF;
 		width: calc(100% - 20px);
 		max-width:none;
-		/* height: 40vh; */
 		height: calc(100% - 20px);
 		max-height: fit-content;
 		margin: auto;
@@ -176,25 +182,52 @@ input[id="instant"]:checked::after {
 		right: 0;
 		border: 1px solid #000000a9;
 		border-radius: 20px;
-		padding: 20px;
+		padding: 20px; */
 	}
 	.ModalContentContainer {
 		justify-content: space-evenly;
 	}
 	.ModalRadioInput{
-		margin: 10% 0;
+		flex-direction: column;
 	}
+	.ModalRadioItems{
+		/* flex-direction: column; */
+		flex-wrap: wrap;
+		padding:0;
+		/* padding-top: 10px; */
+		margin-top: 15px;
+	}
+	
+	.ModalRadioItem{
+		width: 50%;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		padding: 5px 0;
+	}
+
 	.ModalContentInputs {
 		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 	}
+
+	.ModalRadioLabel{
+		padding: 0;
+		margin: 0 10px 0 0;
+		width: 50px;
+	}
+
 	.ModalHeader{
 		width: 100%;
 	}
 	.ModalHeaderInput{
 		width: 100%;
+	}
+	.ModalDescription{
+		width: 100%;
+		margin-bottom: 10px;
 	}
 	.ModalDescriptionInput {
 		width: 100%;
@@ -204,7 +237,7 @@ input[id="instant"]:checked::after {
 		background: #99958c13;
 		word-break: break-all;
 		height: 23vh;
-		width: 39vw;
+		width: 100%;
 		max-width: none;
 		max-height: none;
 		resize: none;
@@ -220,6 +253,7 @@ input[id="instant"]:checked::after {
 	}
 	.ModalDescription {
 		width: 100%;
+		margin-bottom: 10px;
 	}
 	.ModalDescriptionInput {
 		width: 100%;
@@ -239,7 +273,7 @@ input[id="instant"]:checked::after {
 	.ModalRadioItem {
 		flex-direction: row;
 		align-items: center;
-		width: 20%;
+		width: 45%;
 		min-width: 100px;
 		justify-content: space-between;
 	}
@@ -298,10 +332,35 @@ input[id="instant"]:checked::after {
 		top: 54%;
 	}
 }
-@media (max-height:576px) and (max-width:768px){
+@media (max-height:650px) and (max-width:576px){
+	.ModalAdd {
+		width: 70vw;
+		max-width: 700px;
+		top: 40%;
+		left: 0;
+		bottom: 60%;
+		right: 0;
+	}
 	.ModalRadioInput{
 		margin: 1% 0;
 		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media (max-height:330px){
+	.ModalAdd{
+		max-height: calc(100vh - 50px);
+	}
+	.ModalAddCard{
+		padding-bottom: 20px;
+	}
+}
+@media (max-width:340px	){
+	.ModalRadioItems{
+
+	}
+	.ModalRadioItem{
 		flex-direction: column;
 	}
 }

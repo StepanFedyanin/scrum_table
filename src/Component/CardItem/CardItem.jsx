@@ -11,10 +11,10 @@ const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable
 			return (
 				<div className={cls.CardItemTransfer}>
 					<div className={cls.pref}>
-						<span onClick={transferBackTheTable}>&lt;</span>
+						<span className={cls.CardItem__btn}  onClick={transferBackTheTable}>&lt;</span>
 					</div>
 					<div className={cls.next}>
-						<span onClick={transferAcrossTheTable}>&gt;</span>
+						<span className={cls.CardItem__btn}  onClick={transferAcrossTheTable}>&gt;</span>
 					</div>
 				</div>
 			)
@@ -24,7 +24,7 @@ const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable
 			return (
 				<div className={cls.CardItemTransfer}>
 					<div className={cls.pref}>
-						<span onClick={transferBackTheTable}>&lt;</span>
+						<span className={cls.CardItem__btn}  onClick={transferBackTheTable}>&lt;</span>
 					</div>
 				</div>
 			)
@@ -33,7 +33,7 @@ const transferTools = (paramsTools, transferBackTheTable, transferAcrossTheTable
 			return (
 				<div className={cls.CardItemTransfer}>
 					<div className={cls.next}>
-						<span onClick={transferAcrossTheTable}>&gt;</span>
+						<span className={cls.CardItem__btn}  onClick={transferAcrossTheTable}>&gt;</span>
 					</div>
 				</div>
 			)
@@ -104,10 +104,10 @@ function CardItem({ transferParams, cardList, setCardList, nextCardList, setNext
 					</div>
 					<div className={cls.CardItemTools}>
 						<div className={cls.CardItemEdit}>
-							<span onClick={() => editCardAssembly()}>...</span>
+							<span className={cls.CardItem__btn} onClick={() => editCardAssembly()}>...</span>
 						</div>
 						<div className="">
-							<span onClick={() => deleteCard()}>&#215;</span>
+							<span className={cls.CardItem__btn} onClick={() => deleteCard()}>&#215;</span>
 						</div>
 					</div>
 				</div>

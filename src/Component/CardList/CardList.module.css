@@ -24,10 +24,10 @@
 .blockHeaderAdd {
  justify-self: center;
 }
-
-.blockHeaderAdd:hover {
-	color: red;
+.blockHeaderAdd_btn:hover{
+	color: #a0a0a0;
 }
+
 .blockContentAdd{
 	display: none;
 }

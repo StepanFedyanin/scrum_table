@@ -3,7 +3,7 @@
 	min-height: 130px;
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	position: relative;
 }
 
@@ -56,6 +56,9 @@
 }
 .CardItemEdit{
 	transform: rotate(90deg);
+}
+.CardItem__btn:hover{
+	color: #a0a0a0;
 }
 
 .CardItemDescription{

@@ -21,7 +21,7 @@ function CardList({ children, openModal, add, title, listShow, changeShow, id })
 					add ?
 						<div className={cls.blockHeaderAddHide}>
 							<div className={cls.blockHeaderAdd} onClick={addCardModule}>
-								<button>+ add task</button>
+								<button className={cls.blockHeaderAdd_btn}>+ add task</button>
 							</div>
 						</div>
 

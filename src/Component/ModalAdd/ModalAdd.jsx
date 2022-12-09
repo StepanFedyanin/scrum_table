@@ -145,22 +145,25 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, bool
 							<div className="">
 								<p>priority: </p>
 							</div>
-							<div className={cls.ModalRadioItem}>
-								<label className={cls.ModalRadioLabel} htmlFor="normal">normal</label>
-								<input className={cls.ModalRadioInputRadio} id="normal" type="radio" name="priorityItem" ref={normalChecked} />
+							<div className={cls.ModalRadioItems}>
+								<div className={cls.ModalRadioItem}>
+									<label className={cls.ModalRadioLabel} htmlFor="normal">normal</label>
+									<input className={cls.ModalRadioInputRadio} id="normal" type="radio" name="priorityItem" ref={normalChecked} />
+								</div>
+								<div className={cls.ModalRadioItem}>
+									<label className={cls.ModalRadioLabel} htmlFor="high">high</label>
+									<input className={cls.ModalRadioInputRadio} id="high" type="radio" name="priorityItem" ref={highChecked} />
+								</div>
+								<div className={cls.ModalRadioItem}>
+									<label className={cls.ModalRadioLabel} htmlFor="urgent">urgent</label>
+									<input className={cls.ModalRadioInputRadio} id="urgent" type="radio" name="priorityItem" ref={urgentChecked} />
+								</div>
+								<div className={cls.ModalRadioItem}>
+									<label className={cls.ModalRadioLabel} htmlFor="instant">instant</label>
+									<input className={cls.ModalRadioInputRadio} id="instant" type="radio" name="priorityItem" ref={instantChecked} />
+								</div>
 							</div>
-							<div className={cls.ModalRadioItem}>
-								<label className={cls.ModalRadioLabel} htmlFor="high">high</label>
-								<input className={cls.ModalRadioInputRadio} id="high" type="radio" name="priorityItem" ref={highChecked} />
-							</div>
-							<div className={cls.ModalRadioItem}>
-								<label className={cls.ModalRadioLabel} htmlFor="urgent">urgent</label>
-								<input className={cls.ModalRadioInputRadio} id="urgent" type="radio" name="priorityItem" ref={urgentChecked} />
-							</div>
-							<div className={cls.ModalRadioItem}>
-								<label className={cls.ModalRadioLabel} htmlFor="instant">instant</label>
-								<input className={cls.ModalRadioInputRadio} id="instant" type="radio" name="priorityItem" ref={instantChecked} />
-							</div>
+
 						</div>
 						<div className={cls.ModalDescription}>
 							<textarea className={cls.ModalDescriptionInput} ref={description} name="" id="" cols="30" rows="10" placeholder='description...'></textarea>
@@ -169,9 +172,9 @@ function ModalAdd({ booleanOpenModal, setBooleanOpenModal, addCardListTask, bool
 					<div className={cls.ModalAddCard}>
 						{
 							booleanEditModal ?
-								<button onClick={() => editCardModal()}>edit</button>
+								<button className={cls.ModalAddCard__btn} onClick={() => editCardModal()}>edit</button>
 								:
-								<button onClick={() => CardListTask()}>+ add task</button>
+								<button className={cls.ModalAddCard__btn} onClick={() => CardListTask()}>+ add task</button>
 						}
 					</div>
 				</div>
